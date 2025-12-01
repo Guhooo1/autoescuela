@@ -67,25 +67,6 @@ class Alumno(models.Model):
     aprobado_teorico = fields.Boolean(string="Aprobado Teórico")
     aprobado_practico = fields.Boolean(string="Aprobado Práctico")
     _sql_constraints = [('dni_uniq', 'unique(dni)', 'Ya existe un alumno con ese DNI.')]
-    
-class Examen(models.Model):
-    _name = 'autoescuela.examen'
-    _description = 'Examen de la Autoescuela'
-    _order = 'fecha desc, id desc'
-
-    name = fields.Char(string="Nombre", required=True)
-    dni = fields.Char(string="DNI", required=True)
-    autoescuela_id = fields.Many2one('autoescuela.autoescuela', string="Autoescuela")
-    profesor_id = fields.Many2one('autoescuela.profesor', 'alumno_id', string="Profesor asignado")
-    examen_ids = fields.One2many('autoescuela.examen', 'alumno_id', string="Exámenes")
-    domicilio = fields.Date(string="Domicilio")
-    matricula = fields.Integer(string="Matrícula")
-    fecha_nacimiento = fields.Date(string="Fecha de nacimiento")
-    numero_practicas = fields.Integer(string="Prácticas Realizadas", default = 0)
-    aprobado_teorico = fields.Boolean(string="Aprobado Teórico")
-    aprobado_practico = fields.Boolean(string="Aprobado Práctico")
-    _sql_constraints = [('dni_uniq', 'unique(dni)', 'Ya existe un alumno con ese DNI.')]
-
 
 class Examen(models.Model):
     _name = 'autoescuela.examen'

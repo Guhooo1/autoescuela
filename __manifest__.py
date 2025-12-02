@@ -2,20 +2,20 @@
 {
     'name': "autoescuela",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Gestion de autoescuelas",
 
     'description': """
-Long description of module's purpose
+        Módulo para la gestión integral de autoescuelas, incluyendo administración de estudiantes, instructores, vehículos y programación de clases.
     """,
 
-    'author': "My Company",
+    'author': "Sergio, Juan y Hugo",
     'website': "https://www.yourcompany.com",
     'application': True,
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'education',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
@@ -23,7 +23,7 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],

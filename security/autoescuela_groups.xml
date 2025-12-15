@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
     <!-- Categoría -->
     <record id="module_category_autoescuela" model="ir.module.category">
         <field name="name">Autoescuela</field>
-        <field name="sequence">10</field>
+        <field name="description">Gestión de autoescuela</field>
+        <field name="sequence">30</field>
     </record>
 
     <!-- Grupo Director -->

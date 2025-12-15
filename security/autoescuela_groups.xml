@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <!-- Categoría -->
+    <record id="module_category_autoescuela" model="ir.module.category">
+        <field name="name">Autoescuela</field>
+        <field name="sequence">10</field>
+    </record>
+
     <!-- Grupo Director -->
     <record id="group_autoescuela_director" model="res.groups">
         <field name="name">Director</field>
-        <field name="category_id" ref="base.module_category_education"/>
+        <field name="category_id" ref="module_category_autoescuela"/>
     </record>
 
     <!-- Grupo Gestor -->
     <record id="group_autoescuela_gestor" model="res.groups">
         <field name="name">Gestor</field>
-        <field name="category_id" ref="base.module_category_education"/>
+        <field name="category_id" ref="module_category_autoescuela"/>
     </record>
+
 </odoo>

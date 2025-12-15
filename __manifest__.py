@@ -5,12 +5,11 @@
     'summary': "Gestion de autoescuelas",
 
     'description': """
-        Módulo para la gestión integral de autoescuelas, incluyendo administración de estudiantes, instructores, vehículos y programación de clases.
+        Modulo para la gestion de autoescuelas 
     """,
 
     'author': "Sergio, Juan y Hugo",
-    'website': "https://www.yourcompany.com",
-    'application': True,
+    'website': "",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -24,6 +23,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'security/autoescuela_groups.xml'
         'views/views.xml',
         'views/templates.xml',
     ],

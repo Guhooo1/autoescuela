@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Grupo Director -->
+    <record id="group_autoescuela_director" model="res.groups">
+        <field name="name">Director</field>
+        <field name="category_id" ref="base.module_category_education"/>
+    </record>
+
+    <!-- Grupo Gestor -->
+    <record id="group_autoescuela_gestor" model="res.groups">
+        <field name="name">Gestor</field>
+        <field name="category_id" ref="base.module_category_education"/>
+    </record>
+</odoo>

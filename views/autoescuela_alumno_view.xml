@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- VISTA TREE -->
+    <record id="view_alumno_tree" model="ir.ui.view">
+        <field name="name">autoescuela.alumno.tree</field>
+        <field name="model">autoescuela.alumno</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="autoescuela_id"/>
+                <field name="profesor_id"/>
+                <field name="matricula"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- VISTA FORM -->
+    <record id="view_alumno_form" model="ir.ui.view">
+        <field name="name">autoescuela.alumno.form</field>
+        <field name="model">autoescuela.alumno</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Datos del Alumno">
+                        <field name="name"/>
+                        <field name="dni"/>
+                        <field name="domicilio"/>
+                        <field name="matricula"/>
+                        <field name="autoescuela_id"/>
+                        <field name="profesor_id"/>
+                    </group>
+
+                    <group string="Exámenes">
+                        <field name="examen_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACCIÓN -->
+    <record id="action_alumno" model="ir.actions.act_window">
+        <field name="name">Alumnos</field>
+        <field name="res_model">autoescuela.alumno</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

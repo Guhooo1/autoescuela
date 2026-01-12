@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- TREE -->
+    <record id="view_autoescuela_tree" model="ir.ui.view">
+        <field name="name">autoescuela.autoescuela.tree</field>
+        <field name="model">autoescuela.autoescuela</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="domicilio"/>
+                <field name="localidad"/>
+                <field name="provincia"/>
+                <field name="contacto"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- FORM -->
+    <record id="view_autoescuela_form" model="ir.ui.view">
+        <field name="name">autoescuela.autoescuela.form</field>
+        <field name="model">autoescuela.autoescuela</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="domicilio"/>
+                        <field name="localidad"/>
+                        <field name="provincia"/>
+                        <field name="contacto"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Profesores">
+                            <field name="profesor_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Alumnos">
+                            <field name="alumno_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Exámenes">
+                            <field name="examen_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACCIÓN -->
+    <record id="action_autoescuela" model="ir.actions.act_window">
+        <field name="name">Autoescuelas</field>
+        <field name="res_model">autoescuela.autoescuela</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

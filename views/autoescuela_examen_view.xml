@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- TREE -->
+    <record id="view_examen_tree" model="ir.ui.view">
+        <field name="name">autoescuela.examen.tree</field>
+        <field name="model">autoescuela.examen</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="fecha"/>
+                <field name="alumno_id"/>
+                <field name="carnet"/>
+                <field name="precio"/>
+                <field name="aprobado"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- FORM -->
+    <record id="view_examen_form" model="ir.ui.view">
+        <field name="name">autoescuela.examen.form</field>
+        <field name="model">autoescuela.examen</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="fecha"/>
+                        <field name="alumno_id"/>
+                        <field name="autoescuela_ids" widget="many2many_tags"/>
+                        <field name="moneda_id"/>
+                        <field name="precio"/>
+                        <field name="clases"/>
+                        <field name="carnet" help="Valores recomendados: A1, A2, B, C1, C, D..."/>
+                        <field name="aprobado"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- CALENDAR -->
+    <record id="view_examen_calendar" model="ir.ui.view">
+        <field name="name">autoescuela.examen.calendar</field>
+        <field name="model">autoescuela.examen</field>
+        <field name="arch" type="xml">
+            <calendar date_start="fecha" string="Exámenes" color="alumno_id">
+                <field name="name"/>
+                <field name="carnet"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- BÚSQUEDA -->
+    <record id="view_examen_search" model="ir.ui.view">
+        <field name="name">autoescuela.examen.search</field>
+        <field name="model">autoescuela.examen</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="carnet"/>
+                <filter name="filter_carnet"
+                        string="Carnet"
+                        domain="[('carnet','!=','')]"
+                        default="1"
+                        help="Filtra por carnet"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ACCIÓN -->
+    <record id="action_examen" model="ir.actions.act_window">
+        <field name="name">Exámenes por Alumno</field>
+        <field name="res_model">autoescuela.examen</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+</odoo>

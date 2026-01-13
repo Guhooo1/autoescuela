@@ -24,13 +24,13 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'security/autoescuela_groups.xml'
+        'security/autoescuela_groups.xml',
         'views/views.xml',
         'views/autoescuela_alumno_view.xml',
         'views/autoescuela_autoescuela_view.xml',
         'views/autoescuela_examen_view.xml',
         'views/autoescuela_menus.xml',
-        'views/autoescuela_profesor_view.xml'
+        'views/autoescuela_profesor_view.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

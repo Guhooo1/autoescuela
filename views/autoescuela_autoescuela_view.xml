@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
     <!-- TREE -->
     <record id="view_autoescuela_tree" model="ir.ui.view">
         <field name="name">autoescuela.autoescuela.tree</field>
@@ -12,6 +11,8 @@
                 <field name="localidad"/>
                 <field name="provincia"/>
                 <field name="contacto"/>
+                <field name="alumnos_count"/>
+                <field name="profesores_count"/>
             </tree>
         </field>
     </record>
@@ -23,27 +24,41 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-
                     <group>
                         <field name="name"/>
                         <field name="domicilio"/>
                         <field name="localidad"/>
                         <field name="provincia"/>
                         <field name="contacto"/>
+                        <field name="alumnos_count" readonly="1"/>
+                        <field name="profesores_count" readonly="1"/>
                     </group>
-
                     <notebook>
                         <page string="Profesores">
-                            <field name="profesor_ids" widget="many2many_tags"/>
+                            <field name="profesor_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="dni"/>
+                                    <field name="coche"/>
+                                    <field name="incorporacion"/>
+                                    <field name="antiguedad"/>
+                                </tree>
+                            </field>
                         </page>
                         <page string="Alumnos">
-                            <field name="alumno_ids" widget="many2many_tags"/>
+                            <field name="alumno_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="dni"/>
+                                    <field name="matricula"/>
+                                    <field name="profesor_id"/>
+                                </tree>
+                            </field>
                         </page>
                         <page string="Exámenes">
                             <field name="examen_ids" widget="many2many_tags"/>
                         </page>
                     </notebook>
-
                 </sheet>
             </form>
         </field>
@@ -55,5 +70,4 @@
         <field name="res_model">autoescuela.autoescuela</field>
         <field name="view_mode">tree,form</field>
     </record>
-
 </odoo>

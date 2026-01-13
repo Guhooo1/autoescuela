@@ -16,6 +16,7 @@
     # for the full list
     'category': 'education',
     'version': '0.1',
+    'application': 'True'
 
     # any module necessary for this one to work correctly
     'depends': ['base'],

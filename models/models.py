@@ -15,7 +15,6 @@ class Autoescuela(models.Model):
     provincia = fields.Char(string="Provincia")
     contacto = fields.Char(string="Contacto")
 
-    # Relaciones
     profesor_ids = fields.One2many(
         'autoescuela.profesor',
         'autoescuela_id',
@@ -33,15 +32,14 @@ class Autoescuela(models.Model):
         string="Exámenes"
     )
 
-    # Contadores
     alumnos_count = fields.Integer(
-        string="Número de alumnos",
-        compute='_compute_counts'
+        compute='_compute_counts',
+        string="Número de alumnos"
     )
 
     profesores_count = fields.Integer(
-        string="Número de profesores",
-        compute='_compute_counts'
+        compute='_compute_counts',
+        string="Número de profesores"
     )
 
     @api.depends('alumno_ids', 'profesor_ids')
@@ -53,7 +51,7 @@ class Autoescuela(models.Model):
 
 class Profesor(models.Model):
     _name = 'autoescuela.profesor'
-    _description = 'Profesor de la Autoescuela'
+    _description = 'Profesor'
 
     name = fields.Char(string="Nombre", required=True)
     dni = fields.Char(string="DNI", required=True)
@@ -67,8 +65,8 @@ class Profesor(models.Model):
     incorporacion = fields.Date(string="Fecha de incorporación")
 
     antiguedad = fields.Integer(
-        string="Antigüedad (años)",
-        compute='_compute_antiguedad'
+        compute='_compute_antiguedad',
+        string="Antigüedad (años)"
     )
 
     alumno_ids = fields.One2many(
@@ -91,7 +89,7 @@ class Profesor(models.Model):
 
 class Alumno(models.Model):
     _name = 'autoescuela.alumno'
-    _description = 'Alumno de la Autoescuela'
+    _description = 'Alumno'
 
     name = fields.Char(string="Nombre", required=True)
     dni = fields.Char(string="DNI", required=True)
@@ -115,22 +113,21 @@ class Alumno(models.Model):
     domicilio = fields.Char(string="Domicilio")
     matricula = fields.Integer(string="Matrícula")
     fecha_nacimiento = fields.Date(string="Fecha de nacimiento")
-    numero_practicas = fields.Integer(string="Prácticas realizadas", default=0)
+    numero_practicas = fields.Integer(default=0, string="Prácticas realizadas")
     aprobado_teorico = fields.Boolean(string="Aprobado teórico")
     aprobado_practico = fields.Boolean(string="Aprobado práctico")
 
     _sql_constraints = [
-        ('dni_uniq', 'unique(dni)', 'Ya existe un alumno con ese DNI.')
+        ('dni_unique', 'unique(dni)', 'Ya existe un alumno con ese DNI.')
     ]
 
 
 class Examen(models.Model):
     _name = 'autoescuela.examen'
-    _description = 'Examen de la autoescuela'
+    _description = 'Examen'
     _order = 'fecha desc, id desc'
 
     name = fields.Char(
-        string="Referencia",
         required=True,
         copy=False,
         default=lambda self: self.env['ir.sequence'].next_by_code('autoescuela.examen') or '/'
@@ -151,9 +148,9 @@ class Examen(models.Model):
     )
 
     moneda_id = fields.Many2one('res.currency', string="Moneda")
-    precio = fields.Monetary(string="Precio", currency_field='moneda_id')
+    precio = fields.Monetary(currency_field='moneda_id', string="Precio")
     clases = fields.Integer(string="Número de clases")
-    carnet = fields.Char(string="Carnet (tipo)")
+    carnet = fields.Char(string="Carnet")
 
     estado = fields.Selection(
         [
@@ -162,8 +159,8 @@ class Examen(models.Model):
             ('aprobado', 'Aprobado'),
             ('suspendido', 'Suspendido'),
         ],
-        string="Estado",
-        default='programado'
+        default='programado',
+        string="Estado"
     )
 
     @api.constrains('clases')

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
     <!-- TREE -->
     <record id="view_examen_tree" model="ir.ui.view">
         <field name="name">autoescuela.examen.tree</field>
@@ -12,7 +11,7 @@
                 <field name="alumno_id"/>
                 <field name="carnet"/>
                 <field name="precio"/>
-                <field name="aprobado"/>
+                <field name="estado"/>
             </tree>
         </field>
     </record>
@@ -24,7 +23,6 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-
                     <group>
                         <field name="name" readonly="1"/>
                         <field name="fecha"/>
@@ -33,10 +31,10 @@
                         <field name="moneda_id"/>
                         <field name="precio"/>
                         <field name="clases"/>
-                        <field name="carnet" help="Valores recomendados: A1, A2, B, C1, C, D..."/>
-                        <field name="aprobado"/>
+                        <field name="carnet"
+                               help="Valores recomendados: A1, A2, B, C1, C, D..."/>
+                        <field name="estado"/>
                     </group>
-
                 </sheet>
             </form>
         </field>
@@ -61,10 +59,10 @@
         <field name="arch" type="xml">
             <search>
                 <field name="carnet"/>
+                <field name="alumno_id"/>
                 <filter name="filter_carnet"
-                        string="Carnet"
+                        string="Con carnet"
                         domain="[('carnet','!=','')]"
-                        default="1"
                         help="Filtra por carnet"/>
             </search>
         </field>
@@ -76,5 +74,4 @@
         <field name="res_model">autoescuela.examen</field>
         <field name="view_mode">tree,form,calendar</field>
     </record>
-
 </odoo>

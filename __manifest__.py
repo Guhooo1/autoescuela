@@ -1,22 +1,29 @@
+# -*- coding: utf-8 -*-
 {
     'name': "Autoescuela",
     'summary': "Gestión de autoescuelas",
-    'description': "Módulo para la gestión de autoescuelas",
+   'description': """ 
+        Módulo completo para la gestión integral de autoescuelas:
+        - Autoescuelas, profesores y alumnos
+        - Gestión de exámenes teóricos/prácticos
+        - Estadísticas y reportes
+        - Calendario de exámenes
+    """,
     'author': "Sergio, Juan y Hugo",
     'category': 'Education',
-    'version': '1.0',
+    'version': '1.0.0',
     'depends': ['base'],
     'application': True,
-
-    'data': [
-        'security/ir.model.access.csv',
+'data': [
         'security/autoescuela_groups.xml',
-
+        'security/ir.model.access.csv',
         'views/autoescuela_autoescuela_view.xml',
         'views/autoescuela_profesor_view.xml',
         'views/autoescuela_alumno_view.xml',
         'views/autoescuela_examen_view.xml',
         'views/autoescuela_menus.xml',
     ],
+    'demo': [
+        'demo/demo.xml',
+    ],
 }
-

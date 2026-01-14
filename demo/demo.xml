@@ -1,30 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-<!--
-          <record id="object0" model="autoescuela.autoescuela">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
+        <!-- AUTOESCUELAS DE DEMO -->
+        <record id="demo_autoescuela_1" model="autoescuela.autoescuela">
+            <field name="name">Autoescuela Madrid Centro</field>
+            <field name="domicilio">Calle Gran Vía, 123</field>
+            <field name="localidad">Madrid</field>
+            <field name="provincia">Madrid</field>
+            <field name="contacto">+34 912 345 678</field>
+        </record>
 
-          <record id="object1" model="autoescuela.autoescuela">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
-          </record>
+        <record id="demo_autoescuela_2" model="autoescuela.autoescuela">
+            <field name="name">Autoescuela Sur</field>
+            <field name="domicilio">Avenida de Andalucía, 456</field>
+            <field name="localidad">Madrid</field>
+            <field name="provincia">Madrid</field>
+            <field name="contacto">+34 913 456 789</field>
+        </record>
 
-          <record id="object2" model="autoescuela.autoescuela">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
+        <!-- PROFESORES DE DEMO -->
+        <record id="demo_profesor_1" model="autoescuela.profesor">
+            <field name="name">Juan Pérez García</field>
+            <field name="dni">12345678A</field>
+            <field name="coche">Seat León 2020</field>
+            <field name="autoescuela_id" ref="demo_autoescuela_1"/>
+            <field name="incorporacion">2020-03-15</field>
+        </record>
 
-          <record id="object3" model="autoescuela.autoescuela">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
+        <record id="demo_profesor_2" model="autoescuela.profesor">
+            <field name="name">María López Ruiz</field>
+            <field name="dni">87654321B</field>
+            <field name="coche">Renault Clio 2019</field>
+            <field name="autoescuela_id" ref="demo_autoescuela_2"/>
+            <field name="incorporacion">2018-09-01</field>
+        </record>
 
-          <record id="object4" model="autoescuela.autoescuela">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
+        <!-- ALUMNOS DE DEMO -->
+        <record id="demo_alumno_1" model="autoescuela.alumno">
+            <field name="name">Ana Martínez Soto</field>
+            <field name="dni">11111111Z</field>
+            <field name="domicilio">Calle Alcalá, 89</field>
+            <field name="matricula">2024001</field>
+            <field name="autoescuela_id" ref="demo_autoescuela_1"/>
+            <field name="profesor_id" ref="demo_profesor_1"/>
+            <field name="fecha_nacimiento">2000-05-12</field>
+            <field name="numero_practicas">15</field>
+            <field name="aprobado_teorico">True</field>
+        </record>
+
+        <record id="demo_alumno_2" model="autoescuela.alumno">
+            <field name="name">Carlos Gómez Vega</field>
+            <field name="dni">22222222Y</field>
+            <field name="domicilio">Paseo de la Castellana, 200</field>
+            <field name="matricula">2024002</field>
+            <field name="autoescuela_id" ref="demo_autoescuela_2"/>
+            <field name="profesor_id" ref="demo_profesor_2"/>
+            <field name="fecha_nacimiento">1998-11-23</field>
+            <field name="numero_practicas">8</field>
+        </record>
+
+        <!-- EXÁMENES DE DEMO -->
+        <record id="demo_examen_1" model="autoescuela.examen">
+            <field name="fecha">2026-01-20</field>
+            <field name="alumno_id" ref="demo_alumno_1"/>
+            <field name="autoescuela_ids" eval="[(6, 0, [ref('demo_autoescuela_1')])]"/>
+            <field name="moneda_id" ref="base.EUR"/>
+            <field name="precio">250.00</field>
+            <field name="clases">20</field>
+            <field name="carnet">B</field>
+            <field name="estado">programado</field>
+        </record>
+
+        <record id="demo_examen_2" model="autoescuela.examen">
+            <field name="fecha">2026-01-15</field>
+            <field name="alumno_id" ref="demo_alumno_2"/>
+            <field name="autoescuela_ids" eval="[(6, 0, [ref('demo_autoescuela_2')])]"/>
+            <field name="moneda_id" ref="base.EUR"/>
+            <field name="precio">180.00</field>
+            <field name="clases">12</field>
+            <field name="carnet">B</field>
+            <field name="estado">aprobado</field>
+        </record>
     </data>
 </odoo>

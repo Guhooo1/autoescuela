@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Reporte Alumno -->
+    <report
+        id="action_report_alumno"
+        model="autoescuela.alumno"
+        string="Imprimir Alumno"
+        report_type="qweb-pdf"
+        name="autoescuela.report_alumno_document"
+        file="autoescuela.report_alumno_document"
+    />
+
+    <!-- Reporte Profesor -->
+    <report
+        id="action_report_profesor"
+        model="autoescuela.profesor"
+        string="Imprimir Profesor"
+        report_type="qweb-pdf"
+        name="autoescuela.report_profesor_document"
+        file="autoescuela.report_profesor_document"
+    />
+
+    <!-- Reporte Examen -->
+    <report
+        id="action_report_examen"
+        model="autoescuela.examen"
+        string="Imprimir Examen"
+        report_type="qweb-pdf"
+        name="autoescuela.report_examen_document"
+        file="autoescuela.report_examen_document"
+    />
+
+</odoo>

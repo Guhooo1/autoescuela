@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_examen_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Ficha del Examen</h2>
+
+                <p><strong>Referencia:</strong> <span t-field="doc.name"/></p>
+                <p><strong>Fecha:</strong> <span t-field="doc.fecha"/></p>
+                <p><strong>Alumno:</strong> <span t-field="doc.alumno_id.name"/></p>
+                <p><strong>Autoescuela:</strong> <span t-field="doc.autoescuela_ids[0].name"/></p>
+                <p><strong>Carnet:</strong> <span t-field="doc.carnet"/></p>
+                <p><strong>Número de clases:</strong> <span t-field="doc.clases"/></p>
+                <p><strong>Precio:</strong> <span t-field="doc.precio"/> <span t-field="doc.moneda_id.symbol"/></p>
+
+                <p>
+                    <strong>Estado:</strong>
+                    <t t-if="doc.estado == 'programado'">Programado</t>
+                    <t t-elif="doc.estado == 'presentado'">Presentado</t>
+                    <t t-elif="doc.estado == 'aprobado'">Aprobado</t>
+                    <t t-else="">Suspendido</t>
+                </p>
+
+            </div>
+        </t>
+    </template>
+
+</odoo>

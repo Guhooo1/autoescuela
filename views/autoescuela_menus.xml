@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_autoescuela_root" 
+              name="Autoescuela" 
+              sequence="10" 
+              web_icon="autoescuela,static/description/icon.png"/>
+
+    <menuitem id="menu_autoescuela_autoescuelas" 
+              name="Autoescuelas" 
+              parent="menu_autoescuela_root" 
+              action="action_autoescuela" 
+              sequence="10"/>
+
+    <menuitem id="menu_autoescuela_profesores" 
+              name="Profesores" 
+              parent="menu_autoescuela_root" 
+              action="action_profesor" 
+              sequence="20"/>
+
+    <menuitem id="menu_autoescuela_alumnos" 
+              name="Alumnos" 
+              parent="menu_autoescuela_root" 
+              action="action_alumno" 
+              sequence="30"/>
+
+    <menuitem id="menu_autoescuela_examenes" 
+              name="Exámenes" 
+              parent="menu_autoescuela_root" 
+              action="action_examen" 
+              sequence="40"/>
+</odoo>

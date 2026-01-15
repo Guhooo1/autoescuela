@@ -24,10 +24,11 @@
         'views/autoescuela_alumno_view.xml',
         'views/autoescuela_examen_view.xml',
         'views/autoescuela_menus.xml',
-        'reports/alumno_report.xml',
-        'reports/report_templates.xml',
-        'reports/examen_report.xml',
-        'reports/profesor_report.xml',
+        'reports/report_templates_alumno.xml',
+        'reports/report_templates_profesor.xml',
+        'reports/report_templates_examen.xml',
+        'reports/report_templates_autoescuela.xml',
+        'reports/autoescuela_templates.xml',
     ],
 
     'demo': [

@@ -1,0 +1,150 @@
+<odoo>
+<template id="report_autoescuela_document">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+
+                    <h2 class="text-center">Informe de Autoescuela</h2>
+                    <br/>
+
+                    <!-- DATOS GENERALES -->
+                    <h4>Datos de la Autoescuela</h4>
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Nombre:</strong>
+                            <p t-field="o.name"/>
+                        </div>
+                        <div class="col-6">
+                            <strong>Contacto:</strong>
+                            <p t-field="o.contacto"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Domicilio:</strong>
+                            <p t-field="o.domicilio"/>
+                        </div>
+                        <div class="col-6">
+                            <strong>Localidad:</strong>
+                            <p t-field="o.localidad"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Provincia:</strong>
+                            <p t-field="o.provincia"/>
+                        </div>
+                    </div>
+
+                    <!-- PROFESORES -->
+                    <br/>
+                    <h4>Profesores</h4>
+                    <hr/>
+
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>DNI</th>
+                                <th>Coche</th>
+                                <th>Antigüedad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="o.profesor_ids">
+                                <tr t-foreach="o.profesor_ids" t-as="prof">
+                                    <td><span t-field="prof.name"/></td>
+                                    <td><span t-field="prof.dni"/></td>
+                                    <td><span t-field="prof.coche"/></td>
+                                    <td>
+                                        <span t-field="prof.antiguedad"/> años
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-else="">
+                                <tr>
+                                    <td colspan="4" class="text-center">
+                                        No hay profesores registrados
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <!-- ALUMNOS -->
+                    <br/>
+                    <h4>Alumnos</h4>
+                    <hr/>
+
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>DNI</th>
+                                <th>Matrícula</th>
+                                <th>Prácticas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="o.alumno_ids">
+                                <tr t-foreach="o.alumno_ids" t-as="al">
+                                    <td><span t-field="al.name"/></td>
+                                    <td><span t-field="al.dni"/></td>
+                                    <td><span t-field="al.matricula"/></td>
+                                    <td><span t-field="al.numero_practicas"/></td>
+                                </tr>
+                            </t>
+                            <t t-else="">
+                                <tr>
+                                    <td colspan="4" class="text-center">
+                                        No hay alumnos registrados
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <!-- EXÁMENES -->
+                    <br/>
+                    <h4>Exámenes</h4>
+                    <hr/>
+
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Referencia</th>
+                                <th>Fecha</th>
+                                <th>Alumno</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="o.examen_ids">
+                                <tr t-foreach="o.examen_ids" t-as="ex">
+                                    <td><span t-field="ex.name"/></td>
+                                    <td><span t-field="ex.fecha"/></td>
+                                    <td><span t-field="ex.alumno_id.name"/></td>
+                                    <td><span t-field="ex.estado"/></td>
+                                </tr>
+                            </t>
+                            <t t-else="">
+                                <tr>
+                                    <td colspan="4" class="text-center">
+                                        No hay exámenes registrados
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+</odoo>

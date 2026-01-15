@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Acción de reporte PDF -->
+    <record id="action_report_alumno_pdf" model="ir.actions.report">
+        <field name="name">Informe de Alumno (PDF)</field>
+        <field name="model">autoescuela.alumno</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">autoescuela.report_alumno_document</field>
+        <field name="report_file">autoescuela.report_alumno_document</field>
+        <field name="binding_model_id" ref="model_autoescuela_alumno" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Acción de reporte HTML -->
+    <record id="action_report_alumno_html" model="ir.actions.report">
+        <field name="name">Informe de Alumno (HTML)</field>
+        <field name="model">autoescuela.alumno</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">autoescuela.report_alumno_document</field>
+        <field name="report_file">autoescuela.report_alumno_document</field>
+        <field name="binding_model_id" ref="model_autoescuela_alumno" />
+        <field name="binding_type">report</field>
+    </record>
+
+     <!-- Acción de reporte PDF -->
+    <record id="action_report_profesor_pdf" model="ir.actions.report">
+        <field name="name">Informe de Profesor (PDF)</field>
+        <field name="model">autoescuela.profesor</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">autoescuela.report_profesor_document</field>
+        <field name="report_file">autoescuela.report_profesor_document</field>
+        <field name="binding_model_id" ref="model_autoescuela_profesor"/>
+        <field name="binding_type">report</field>
+    </record>
+
+     <!-- Acción de reporte HTML -->
+    <record id="action_report_profesor_html" model="ir.actions.report">
+        <field name="name">Informe de Profesor (HTML)</field>
+        <field name="model">autoescuela.profesor</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">autoescuela.report_profesor_document</field>
+        <field name="report_file">autoescuela.report_profesor_document</field>
+        <field name="binding_model_id" ref="model_autoescuela_profesor"/>
+        <field name="binding_type">report</field>
+    </record>
+
+     <!-- Acción de reporte PDF -->
+    <record id="action_report_examen_pdf" model="ir.actions.report">
+        <field name="name">Informe de Examen (PDF)</field>
+        <field name="model">autoescuela.examen</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">autoescuela.report_examen_document</field>
+        <field name="report_file">autoescuela.report_examen_document</field>
+        <field name="binding_model_id" ref="model_autoescuela_examen"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Acción de reporte HTML -->
+    <record id="action_report_examen_html" model="ir.actions.report">
+        <field name="name">Informe de Examen (HTML)</field>
+        <field name="model">autoescuela.examen</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">autoescuela.report_examen_document</field>
+        <field name="report_file">autoescuela.report_examen_document</field>
+        <field name="binding_model_id" ref="model_autoescuela_examen"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Acción de reporte PDF -->
+    <record id="action_report_autoescuela_pdf" model="ir.actions.report">
+        <field name="name">Informe de Autoescuela (PDF)</field>
+        <field name="model">autoescuela.autoescuela</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">autoescuela.report_autoescuela_document</field>
+        <field name="report_file">autoescuela.report_autoescuela_document</field>
+        <field name="binding_model_id" ref="model_autoescuela_autoescuela"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Acción de reporte HTML -->
+    <record id="action_report_autoescuela_html" model="ir.actions.report">
+        <field name="name">Informe de Autoescuela (HTML)</field>
+        <field name="model">autoescuela.autoescuela</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">autoescuela.report_autoescuela_document</field>
+        <field name="report_file">autoescuela.report_autoescuela_document</field>
+        <field name="binding_model_id" ref="model_autoescuela_autoescuela"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

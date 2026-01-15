@@ -1,0 +1,53 @@
+ <!-- PLANTILLA QWEB -->
+ <odoo>
+    <template id="report_examen_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+
+                        <h2 class="text-center">Informe de Examen</h2>
+                        <br/>
+
+                        <h4>Datos del Examen</h4>
+                        <hr/>
+
+                       <div class="row">
+                            <div class="col-6">
+                                <strong>Tipo carnet:</strong>
+                                <p t-field="o.carnet"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Fecha:</strong>
+                                <p t-field="o.fecha"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>Estado:</strong>
+                                <p t-field="o.estado"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Precio:</strong>
+                                <span t-field="o.precio"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <h4>Alumno</h4>
+                        <hr/>
+
+                        <p>
+                            <strong>Nombre:</strong>
+                            <span t-field="o.alumno_id.name"/>
+                        </p>
+                        <p>
+                            <strong>DNI:</strong>
+                            <span t-field="o.alumno_id.dni"/>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

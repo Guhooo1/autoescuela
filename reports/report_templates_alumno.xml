@@ -1,0 +1,111 @@
+<!-- Template del reporte -->
+<odoo>
+    <template id="report_alumno_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Informe de Alumno</h2>
+                        <br />
+
+                        <h4>Datos Personales</h4>
+                        <hr />
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>Nombre y Apellidos:</strong>
+                                <p t-field="o.name" />
+                            </div>
+                            <div class="col-6">
+                                <strong>DNI:</strong>
+                                <p t-field="o.dni" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>Domicilio:</strong>
+                                <p t-field="o.domicilio" />
+                            </div>
+                            <div class="col-6">
+                                <strong>Número de Matrícula:</strong>
+                                <p t-field="o.matricula" />
+                            </div>
+                        </div>
+
+                        <br />
+                        <h4>Información de la Autoescuela</h4>
+                        <hr />
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>Autoescuela:</strong>
+                                <p t-field="o.autoescuela_id.name" />
+                            </div>
+                            <div class="col-6">
+                                <strong>Localidad:</strong>
+                                <p t-field="o.autoescuela_id.localidad" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>Profesor Habitual:</strong>
+                                <p t-field="o.profesor_id.name" />
+                            </div>
+                            <div class="col-6">
+                                <strong>Contacto Autoescuela:</strong>
+                                <p t-field="o.autoescuela_id.contacto" />
+                            </div>
+                        </div>
+
+                        <br />
+                        <h4>Exámenes Realizados/Pendientes</h4>
+                        <hr />
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Fecha</th>
+                                    <th>Tipo Carnet</th>
+                                    <th>Clases Previas</th>
+                                    <th>Precio</th>
+                                    <th>Aprobado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-if="o.examen_ids">
+                                    <tr t-foreach="o.examen_ids" t-as="examen">
+                                        <td>
+                                            <span t-field="examen.name" />
+                                        </td>
+                                        <td>
+                                            <span t-field="examen.fecha" />
+                                        </td>
+                                        <td>
+                                            <span t-field="examen.carnet" />
+                                        </td>
+                                        <td>
+                                            <span t-field="examen.clases" />
+                                        </td>
+                                        <td>
+                                            <span t-field="examen.precio"
+                                                t-options='{"widget": "monetary", "display_currency": examen.moneda_id}' />
+                                        </td>
+                                        <td>
+                                                <span t-field="examen.estado"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-else="">
+                                    <tr>
+                                        <td colspan="6" class="text-center">No hay exámenes
+                                            registrados</td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
